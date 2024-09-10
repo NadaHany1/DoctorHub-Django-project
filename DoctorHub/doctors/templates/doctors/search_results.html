@@ -1,0 +1,101 @@
+{% extends './base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block header %}
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{% static 'doctors/css/search_results.css' %}">
+    {% endblock %}
+</head>
+<body>
+
+{% block content %}
+    <div class="container">
+        <h1>Doctors Match Both Area And Specialization</h1>
+        <div class="content">
+            {% for doctor in doctors %}
+            <div class="card">
+                <a href="{% url 'doctor_detail' doctor.id %}">
+                    <div class="img">
+                        <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="card-img">
+                    </div>
+                    <div class="data">
+                        <h3>{{ doctor.name }}</h3>
+                        <p>Specialization: {{ doctor.specialization }}</p>
+                        <p>Area: {{ doctor.area }}</p>
+                        <p>Rate: {{ doctor.rate }} / 5</p>
+                    </div>
+                </a>
+            </div>
+
+            {% empty %}
+                <p>No doctors found.</p>
+            {% endfor %}
+        </div>
+
+        <br><br>
+
+        {% if area_doctors %}
+        <h1>More Doctors In Same Area</h1>
+
+        <div class="content">
+            {% for doctor in area_doctors %}
+        
+            <div class="card">
+                <a href="{% url 'doctor_detail' doctor.id %}">
+                    <div class="img">
+                        <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="card-img">
+                    </div>
+                    <div class="data">
+                        <h3>{{ doctor.name }}</h3>
+                        <p>Specialization: {{ doctor.specialization }}</p>
+                        <p>Area: {{ doctor.area }}</p>
+                        <p>Rate: {{ doctor.rate }} / 5</p>
+                    </div>
+                </a>
+            </div>
+        
+            {% empty %}
+                <p>No doctors found.</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <br><br>
+
+        {% if specialization_doctors %}
+        <h1>More Doctors With The Same Specialization</h1>
+
+        <div class="content">
+            {% for doctor in specialization_doctors %}
+        
+            <div class="card">
+                <a href="{% url 'doctor_detail' doctor.id %}">
+                    <div class="img">
+                        <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="card-img">
+                    </div>
+                    <div class="data">
+                        <h3>{{ doctor.name }}</h3>
+                        <p>Specialization: {{ doctor.specialization }}</p>
+                        <p>Area: {{ doctor.area }}</p>
+                        <p>Rate: {{ doctor.rate }} / 5</p>
+                    </div>
+                </a>
+            </div>
+        
+            {% empty %}
+                <p>No doctors found.</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock%}
+
+
+</body>
+</html>

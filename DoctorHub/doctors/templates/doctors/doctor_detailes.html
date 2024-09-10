@@ -1,0 +1,65 @@
+{% extends './base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block header %}
+    <title>Doctor Details</title>
+    <link rel="stylesheet" href="{% static 'doctors/css/doctor_details.css' %}">
+    {% endblock %}
+    </head>
+<body>
+    
+
+    {% block content %}
+    <div class="content">
+        <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}">
+        <h1>{{ doctor.name }}</h1>
+        <p>Specialization: {{ doctor.specialization }}</p>
+        <p>Area: {{ doctor.area }}</p>
+        <p>Address: {{ doctor.address }}</p>
+        <p>Phone: {{ doctor.phone }}</p>
+        <p>Price: ${{ doctor.price }}</p>
+        <p>Rate: {{ doctor.rate }} / 5</p>
+        <p>Working Hours: {{ doctor.working_hours }}</p>
+    </div>
+
+    
+    {% endblock %}
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

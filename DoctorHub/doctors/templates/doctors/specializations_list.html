@@ -1,0 +1,30 @@
+{% extends './base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block header %}
+    <title>Specializations</title>
+    <link rel="stylesheet" href="{% static 'doctors/css/areas_list.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <br>
+    <h1>Specializations</h1>
+    <br>
+    <ul id="spec">
+        <li><a href="{% url 'doctors_by_specialization' specialization='Cardiology' %}">Cardiology</a></li>
+        <li><a href="{% url 'doctors_by_specialization' specialization='Dentistry' %}">Dentistry</a></li>
+        <li><a href="{% url 'doctors_by_specialization' specialization='Dermatology' %}">Dermatology</a></li>
+        <li><a href="{% url 'doctors_by_specialization' specialization='Internal Medicine' %}">Internal Medicine</a></li>
+        <li><a href="{% url 'doctors_by_specialization' specialization='neurology' %}">Neurology</a></li>
+        <li><a href="{% url 'doctors_by_specialization' specialization='Orthopedics' %}">Orthopedics</a></li>
+    </ul>
+</body>
+
+{% endblock %}
+</html>

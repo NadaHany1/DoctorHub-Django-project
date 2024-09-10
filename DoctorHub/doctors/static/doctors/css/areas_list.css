@@ -1,0 +1,11 @@
+#spec li a{
+    text-decoration: none;
+    font-size: 26px;
+    color: cadetblue;
+}
+#spec li a:hover{
+    color: darkcyan;
+}
+h1{
+    font-size: 30px;
+}

@@ -1,0 +1,105 @@
+
+{% extends './base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block header %}
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'doctors/css/home.css' %}">
+    {% endblock %}
+    
+</head>
+<body>
+    {% block content %}
+<br><br>
+    {% if messages %}
+        {% for message in messages %}
+        <h1 style="color:red;">{{ message }}</h1>
+        {% endfor %}
+    {% endif %}
+
+    <h1>Filter Doctors</h1>
+    <h2>You Can Search By Area or Specialization or Both</h2>
+    <br>
+    <div class="search">
+        <form action="{% url 'doctorsearch' %}" method="POST">
+            {% csrf_token %}
+            <select name="Specialization-input" id="Specialization-input">
+                <option value="">Select Specialization</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="dentistry">Dentistry</option>
+                <option value="dermatology">Dermatology</option>
+                <option value="internal medicine">Internal Medicine</option>
+                <option value="neurology">Neurology</option>
+                <option value="orthopedics">Orthopedics</option>
+            </select>
+            <select name="Area-input" id="Area-input">
+                <option value="">Select Area</option>
+                <option value="maadi">Maadi</option>
+                <option value="dokki">Dokki</option>
+                <option value="giza">Giza</option>
+                <option value="madinet-nasr">Madinet Nasr</option>
+                <option value="zayed">Zayed</option>
+                <option value="Downtown">Downtown</option>
+            </select>
+            <button type="submit"><i class="fa fa-search"> Search</i></button>
+        </form>
+    </div>
+
+
+    <br><br>
+
+
+<div class="content">
+    {% for doctor in doctors %}
+
+    <div class="card">
+        <a href="{% url 'doctor_detail' doctor.id %}">
+            <div class="img">
+                <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="card-img">
+            </div>
+            <div class="data">
+                <h3>{{ doctor.name }}</h3>
+                <p>specialization: {{ doctor.specialization }}</p>
+                <p>Area: {{ doctor.area }}</p>
+                <p>Rate: {{ doctor.rate }} / 5</p>
+            </div>
+        </a>
+    </div>
+
+    {% empty %}
+        <p>No doctors found.</p>
+    {% endfor %}
+</div>
+
+    {% endblock %}
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

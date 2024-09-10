@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+nav li , nav li a{
+    text-decoration: none;
+    list-style-type: none;
+    color:#eee;
+    font-weight: 600;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin:5px;
+}
+nav li a:hover{
+    color:white;
+    text-shadow:0 0 10px white;
+}
+nav .container ul{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: cadetblue;
+    padding: 15px;
+}

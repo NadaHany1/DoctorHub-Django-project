@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'doctors/css/base_style.css' %}">
+    {% block header %}
+    <!-- title, style, and another links -->
+    {% endblock %}
+</head>
+
+<body>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'specializations_list' %}">Specializations</a></li>
+                <li><a href="{% url 'area_list' %}">Areas</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><div class="space"></div></li>
+            </ul>
+
+        </div>
+    </nav>
+    {% block content %}
+    <!-- Default content or placeholder -->
+    {% endblock %}
+</body>
+</html>

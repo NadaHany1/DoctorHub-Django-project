@@ -1,0 +1,28 @@
+{% extends './base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block header %}
+    <title>Areas</title>
+    <link rel="stylesheet" href="{% static 'doctors/css/areas_list.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <br>
+    <h1>Areas</h1>
+    <br>
+    <ul id="spec">
+        <li><a href="{% url 'doctors_by_area' area='Maadi' %}">Maadi</a></li>
+        <li><a href="{% url 'doctors_by_area' area='Zayed' %}">Zayed</a></li>
+        <li><a href="{% url 'doctors_by_area' area='Dokki' %}">Dokki</a></li>
+        <li><a href="{% url 'doctors_by_area' area='Downtown' %}">Downtown</a></li>
+        <li><a href="{% url 'doctors_by_area' area='Giza' %}">Giza</a></li>
+        <li><a href="{% url 'doctors_by_area' area='Madinet Nasr' %}">Madinet Nasr</a></li>
+    </ul>
+</body>
+{% endblock %}
+</html>
